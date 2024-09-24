@@ -10,15 +10,15 @@
     <style>
         .btn-active {
             background-color: #6B46C1;
-            /* Purple */
+        
             color: white;
         }
 
         .btn-inactive {
             background-color: white;
-            /* White */
+            
             color: black;
-            /* Text color */
+            
         }
     </style>
 </head>
@@ -26,7 +26,7 @@
 <body>
     <header>
         <div>
-            <div class="navbar bg-base-100">
+            <div class="navbar bg-base-100 fixed top-0 z-10 w-full">
                 <div class="navbar-start">
                     <button style="background-color:#6B46C1; color: white;" class="btn" id="blogButton">Blog</button>
                 </div>
@@ -42,26 +42,29 @@
                 </div>
             </div>
         </div>
-        <section class="flex justify-center mt-3 space-x-3">
-            <!-- buttons  -->
-            <button class="btn btn-inactive" id="donateButton">Donation</button>
-            <button class="btn btn-inactive" id="historyButton">History</button>
-        </section>
+   
     </header>
+  
+    
 
     <main>
+        <div>
+            <section class="flex justify-center mt-16 space-x-3">
+               
+                <button class="btn btn-inactive" id="donateButton">Donation</button>
+                <button class="btn btn-inactive" id="historyButton">History</button>
+            </section> 
+          </div>
         <!-- cards  -->
         <section class="px-4 md:px-16">
             <div>
                 <!-- First Card -->
                 <div class="card card-side bg-base-100 shadow-xl mt-6 flex flex-col md:flex-row">
                     <figure>
-                        <img class="w-full md:w-10/12 ml-0 md:ml-6" src="./pictures/noakhali.png"
-                            alt="image not found" />
+                        <img class="w-full md:w-10/12 ml-0 md:ml-6" src="./pictures/noakhali.png" alt="image not found" />
                     </figure>
                     <div class="card-body mx-4 md:mx-12">
-                        <button class="btn w-2/12" id="amount-button1"><img src="./pictures/coin.png"
-                                alt="">1000</button>
+                        <button class="btn w-2/12" id="amount-button1"><img src="./pictures/coin.png" alt="">1000</button>
 
                         <h2 class="card-title text-center md:text-left">Donate for Flood at Noakhali, Bangladesh</h2>
                         <p>The recent floods in Noakhali have caused significant damage to homes and infrastructure.
@@ -87,14 +90,11 @@
                         <img class="w-full md:w-10/12 ml-0 md:ml-6" src="./pictures/feni.png" alt="image not found" />
                     </figure>
                     <div class="card-body mx-4 md:mx-12">
-                        <button class="btn w-2/12" id="amount-button2"><img src="./pictures/coin.png"
-                                alt="">1200</button>
+                        <button class="btn w-2/12" id="amount-button2"><img src="./pictures/coin.png" alt="">1200</button>
 
-                        <h2 class="card-title text-center md:text-left">Donate for Flood at Another Location, Bangladesh
+                        <h2 class="card-title text-center md:text-left">Donate for Flood Relief in Feni,Bangladesh
                         </h2>
-                        <p>The recent floods in another area have caused significant damage to homes and infrastructure.
-                            Your donation will help provide essential supplies and support to those affected by this
-                            disaster.</p>
+                        <p>The recent floods in Feni have devastated local communities, leading to severe disruption and loss. Your generous donation will help provide immediate aid, including food.</p>
                         <form action="">
                             <div class="form-control">
                                 <label class="label"></label>
@@ -116,14 +116,11 @@
                             alt="image not found" />
                     </figure>
                     <div class="card-body mx-4 md:mx-12">
-                        <button class="btn w-2/12" id="amount-button3"><img src="./pictures/coin.png"
-                                alt="">1200</button>
+                        <button class="btn w-2/12" id="amount-button3"><img src="./pictures/coin.png" alt="">1200</button>
 
-                        <h2 class="card-title text-center md:text-left">Donate for Flood at Another Location, Bangladesh
+                        <h2 class="card-title text-center md:text-left">Aid for Injured in the Quota Movement
                         </h2>
-                        <p>The recent floods in another area have caused significant damage to homes and infrastructure.
-                            Your donation will help provide essential supplies and support to those affected by this
-                            disaster.</p>
+                        <p>The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation. </p>
                         <form action="">
                             <div class="form-control">
                                 <label class="label"></label>
@@ -149,10 +146,10 @@
                 <img src="./pictures/coin.png" alt="">
             </div>
 
-            <p class="py-4">Thank you for your generous donation!</p>
-            <div class="modal-action">
+            <p class="py-4 text-center">Thank you for your generous donation!</p>
+            <div class="modal-action flex justify-center">
                 <form method="dialog">
-                    <button class="btn">Close</button>
+                    <button class="btn">Close confirmation</button>
                 </form>
             </div>
         </div>
@@ -177,6 +174,7 @@
             const donateNowButton = document.getElementById(`donateNowButton${i}`);
             const addMoneyInput = document.getElementById(`addmoney${i}`);
 
+            // Amount button click event
             amountButton.addEventListener('click', () => {
                 // Add 1000 or 1200 to the input field
                 const currentInput = parseFloat(addMoneyInput.value) || 0;
@@ -184,11 +182,14 @@
                 addMoneyInput.value = currentInput + additionalAmount;
             });
 
+            // Donate now button click event
             donateNowButton.addEventListener('click', () => {
-                const donationAmount = parseFloat(addMoneyInput.value) || 0;
+                const donationAmount = parseFloat(addMoneyInput.value);
                 const totalDonation = donationAmount + (parseInt(amountButton.innerText) || 0); // Add button amount to donation
 
-                if (totalDonation > currentBalance) {
+                if (isNaN(donationAmount) || donationAmount < 0) {
+                    alert("Invalid input! Please enter a non-negative number.");
+                } else if (totalDonation > currentBalance) {
                     alert("Insufficient balance");
                 } else {
                     currentBalance -= totalDonation; // Subtract total donation from balance
@@ -214,4 +215,6 @@
             historyButton.classList.remove('btn-active');
         });
     </script>
-</body
+</body>
+
+</html>
