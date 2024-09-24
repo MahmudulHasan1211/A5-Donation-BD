@@ -28,7 +28,8 @@
         <div>
             <div class="navbar bg-base-100 fixed top-0 z-10 w-full">
                 <div class="navbar-start">
-                    <button style="background-color:#6B46C1; color: white;" class="btn" id="blogButton">Blog</button>
+                    <button id="blogs" style="background-color:#6B46C1; color: white;" class="btn"
+                        id="blogButton">Blog</button>
                 </div>
                 <div class="navbar-center flex flex-col md:flex-row items-center">
                     <img class="pr-3" src="./pictures/logo.png" alt="Logo">
@@ -65,8 +66,7 @@
                             alt="image not found" />
                     </figure>
                     <div class="card-body mx-4 md:mx-12">
-                        <button class="btn w-2/12" id="amount-button1"><img src="./pictures/coin.png"
-                                alt="">1000</button>
+                        <p class="btn w-2/12" id="amount-button1"><img src="./pictures/coin.png" alt="">1000</p>
 
                         <h2 class="card-title text-center md:text-left">Donate for Flood at Noakhali, Bangladesh</h2>
                         <p>The recent floods in Noakhali have caused significant damage to homes and infrastructure.
@@ -171,7 +171,11 @@
             event.preventDefault();
             window.location.href = 'history.html'; // Opens file 2
         });
-       
+        blogs.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.location.href = 'blog.html'; // Opens file 2
+        });
+
 
         let currentBalance = 8400;
 
