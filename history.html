@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <div>
+                <section class="flex justify-center mt-20 space-x-3">
+    
+                    <button class="btn btn-inactive" id="donateButton">Donation</button>
+                    <button class="btn btn-inactive" id="historyButton">History</button>
+                </section>
+            </div>
+            <div class="navbar bg-base-100 fixed top-0 z-10 w-full">
+                <div class="navbar-start">
+                    <button style="background-color:#6B46C1; color: white;" class="btn" id="blogButton">Blog</button>
+                </div>
+                <div class="navbar-center flex flex-col md:flex-row items-center">
+                    <img class="pr-3" src="./pictures/logo.png" alt="Logo">
+                    <p class="font-semibold text-center md:text-left">Donate For Bangladesh</p>
+                </div>
+                <div class="navbar-end">
+                    <div class="flex items-center">
+                        <img class="pr-3" src="./pictures/coin.png" alt="Coins">
+                        <div class="font-semibold" id="balance">8400</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <p>History page content here</p>
+    </main>
+
+    <script>
+         donateButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.location.href = 'index.html'; // Opens file 1
+        });
+    </script>
+</body>
+
+</html>

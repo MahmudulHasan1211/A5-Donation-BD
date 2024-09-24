@@ -10,15 +10,15 @@
     <style>
         .btn-active {
             background-color: #6B46C1;
-        
+
             color: white;
         }
 
         .btn-inactive {
             background-color: white;
-            
+
             color: black;
-            
+
         }
     </style>
 </head>
@@ -42,29 +42,31 @@
                 </div>
             </div>
         </div>
-   
+
     </header>
-  
-    
+
+
 
     <main>
         <div>
-            <section class="flex justify-center mt-16 space-x-3">
-               
+            <section class="flex justify-center mt-20 space-x-3">
+
                 <button class="btn btn-inactive" id="donateButton">Donation</button>
                 <button class="btn btn-inactive" id="historyButton">History</button>
-            </section> 
-          </div>
+            </section>
+        </div>
         <!-- cards  -->
         <section class="px-4 md:px-16">
             <div>
                 <!-- First Card -->
                 <div class="card card-side bg-base-100 shadow-xl mt-6 flex flex-col md:flex-row">
                     <figure>
-                        <img class="w-full md:w-10/12 ml-0 md:ml-6" src="./pictures/noakhali.png" alt="image not found" />
+                        <img class="w-full md:w-10/12 ml-0 md:ml-6" src="./pictures/noakhali.png"
+                            alt="image not found" />
                     </figure>
                     <div class="card-body mx-4 md:mx-12">
-                        <button class="btn w-2/12" id="amount-button1"><img src="./pictures/coin.png" alt="">1000</button>
+                        <button class="btn w-2/12" id="amount-button1"><img src="./pictures/coin.png"
+                                alt="">1000</button>
 
                         <h2 class="card-title text-center md:text-left">Donate for Flood at Noakhali, Bangladesh</h2>
                         <p>The recent floods in Noakhali have caused significant damage to homes and infrastructure.
@@ -90,11 +92,13 @@
                         <img class="w-full md:w-10/12 ml-0 md:ml-6" src="./pictures/feni.png" alt="image not found" />
                     </figure>
                     <div class="card-body mx-4 md:mx-12">
-                        <button class="btn w-2/12" id="amount-button2"><img src="./pictures/coin.png" alt="">1200</button>
+                        <button class="btn w-2/12" id="amount-button2"><img src="./pictures/coin.png"
+                                alt="">1200</button>
 
                         <h2 class="card-title text-center md:text-left">Donate for Flood Relief in Feni,Bangladesh
                         </h2>
-                        <p>The recent floods in Feni have devastated local communities, leading to severe disruption and loss. Your generous donation will help provide immediate aid, including food.</p>
+                        <p>The recent floods in Feni have devastated local communities, leading to severe disruption and
+                            loss. Your generous donation will help provide immediate aid, including food.</p>
                         <form action="">
                             <div class="form-control">
                                 <label class="label"></label>
@@ -116,11 +120,13 @@
                             alt="image not found" />
                     </figure>
                     <div class="card-body mx-4 md:mx-12">
-                        <button class="btn w-2/12" id="amount-button3"><img src="./pictures/coin.png" alt="">1200</button>
+                        <button class="btn w-2/12" id="amount-button3"><img src="./pictures/coin.png"
+                                alt="">1200</button>
 
                         <h2 class="card-title text-center md:text-left">Aid for Injured in the Quota Movement
                         </h2>
-                        <p>The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation. </p>
+                        <p>The recent Quota movement has resulted in numerous injuries and significant hardship for many
+                            individuals. Your support is crucial in providing medical assistance, rehabilitation. </p>
                         <form action="">
                             <div class="form-control">
                                 <label class="label"></label>
@@ -160,6 +166,12 @@
         const historyButton = document.getElementById('historyButton');
         const balanceElement = document.getElementById('balance');
         const successModal = document.getElementById('my_modal_1');
+
+        historyButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.location.href = 'history.html'; // Opens file 2
+        });
+       
 
         let currentBalance = 8400;
 
