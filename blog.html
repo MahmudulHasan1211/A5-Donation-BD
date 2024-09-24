@@ -10,6 +10,30 @@
 </head>
 
 <body>
+<header>
+    <header></header>
+        <div>
+            <div class="navbar bg-base-100 fixed top-0 z-10 w-full">
+                <div class="navbar-start">
+                    <button id="backhome" style="background-color:#6B46C1; color: white;" class="btn"
+                        >Home</button>
+                </div>
+                <div class="navbar-center flex flex-col md:flex-row items-center">
+                    <img class="pr-3" src="./pictures/logo.png" alt="Logo">
+                    <p class="font-semibold text-center md:text-left">Donate For Bangladesh</p>
+                </div>
+                <div class="navbar-end">
+                    <div class="flex items-center">
+                        <img class="pr-3" src="./pictures/coin.png" alt="Coins">
+                        <div class="font-semibold" id="balance">8400</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+</header>
+
     <section class="my-29">
         <div class="my-20">
             <h1 class="text-4xl font-bold text-center">Frequently Asked <span class="text-red-500">Questions</span>
@@ -19,47 +43,35 @@
         <div class="hero ">
             <div class="hero-content flex-col lg:flex-row">
                 <div>
-                    <div class="collapse collapse-arrow border border-blue-200">
+                    <div class="collapse collapse-arrow border border-blue-200 ">
                         <input type="radio" name="my-accordion-2" checked="checked" />
-                        <div class="collapse-title text-xl font-medium">What are the most important things I should
-                            know about riding a bike?</div>
+                        <div class="collapse-title text-xl font-medium">Document Object Model?</div>
                         <div class="collapse-content">
-                            <p>Safety First! Always obey the rules of the road. Obey all traffic signals, signs, and
-                                laws. Get in the mindset of “driving” your bike—not just “riding” your bike. This
-                                will help you be a more focused and legally compliant bike rider. </p>
+                            <p>The Document Object Model (DOM) is a programming interface for web documents. <br> It represents the page so that programs can change the document structure, style, and content.</p>
                         </div>
                     </div>
-                    <div class="collapse collapse-arrow border border-blue-200">
+                    <div class="collapse collapse-arrow border border-blue-200 mt-2">
                         <input type="radio" name="my-accordion-2" />
-                        <div class="collapse-title text-xl font-medium">How can I tell if my helmet is old and I
-                            need a
-                            new one?</div>
+                        <div class="collapse-title text-xl font-medium">What is React used for?</div>
                         <div class="collapse-content">
-                            <p>For example, sun damage and fading could indicate that you've had your helmet for a long
-                                time & therefore is time to switch it up. Things like scuffs and cracks are also a fair
-                                indication of extensive wear & damage, meaning you will need to replace your helmet</p>
+                            <p>React can be used to build web, mobile, and desktop applications, making it a versatile  <br>framework for cross-platform development</p>
                         </div>
                     </div>
-                    <div class="collapse collapse-arrow border border-blue-200">
+                    <div class="collapse collapse-arrow border border-blue-200 mt-2">
                         <input type="radio" name="my-accordion-2" />
-                        <div class="collapse-title text-xl font-medium">My bike has been in storage is it safe to
-                            ride?</div>
+                        <div class="collapse-title text-xl font-medium">What is tailwind used for?</div>
                         <div class="collapse-content">
-                            <p>No!</p>
+                            <p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this <br> utility-first framework.</p>
                         </div>
                     </div>
-                    <div class="collapse collapse-arrow border border-blue-200">
+                    <div class="collapse collapse-arrow border border-blue-200 mt-2">
                         <input type="radio" name="my-accordion-2" />
-                        <div class="collapse-title text-xl font-medium">What happens when a bike is not used for a long
-                            time?</div>
+                        <div class="collapse-title text-xl font-medium">What is JavaScript and why is it used?</div>
                         <div class="collapse-content">
-                            <p>Depending upon the time period for which the bike was not in use and the prevailing
-                                weather conditions at that time, the bike can rust. Rusting is a big problem when it
-                                comes to a bike, especially the fuel tank, engine, etc. Rusting is not only superficial;
-                                it can happen on the inside as well.</p>
+                            <p>JavaScript is a scripting language used to develop web pages. Developed in Netscape, JS allows <br>developers to create a dynamic and interactive web page to interact with visitors and execute <br>complex actions.</p>
                         </div>
                     </div>
-                    <div class="collapse collapse-arrow border border-blue-200">
+                    <!-- <div class="collapse collapse-arrow border border-blue-200">
                         <input type="radio" name="my-accordion-2" />
                         <div class="collapse-title text-xl font-medium">How long can I leave a motorcycle in storage?
                         </div>
@@ -69,13 +81,16 @@
                                 prepared your motorcycle for storage, we have a helpful guide on how to store a
                                 motorcycle on our website.</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
-        </div>
-
-        </div>
     </section>
+    <script>
+        backhome.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.location.href = 'index.html'; // Opens file 1
+        });
+    </script>
 </body>
 
 </html>
