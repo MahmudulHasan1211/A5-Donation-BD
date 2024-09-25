@@ -14,14 +14,14 @@
         <div>
             <div>
                 <section class="flex justify-center mt-20 space-x-3">
-
-                    <button class="btn btn-inactive" id="donateButton">Donation</button>
-                    <button class="btn btn-inactive" id="historyButton">History</button>
+                    <button class="btn bg-white text-black hover:bg-purple-600 hover:text-white"
+                        id="donateButton">Donation</button>
+                    <button class="btn bg-purple-600 text-white" id="historyButton">History</button>
                 </section>
             </div>
-            <div class="navbar bg-base-100 fixed top-0 z-10 w-full">
+            <div class="navbar bg-[#F7F6E2] fixed top-0 z-10 w-full transition-opacity ease-in-out duration-300">
                 <div class="navbar-start">
-                    <button style="background-color:#6B46C1; color: white;" class="btn" id="blogButton">Blog</button>
+                    <button class="btn bg-purple-600 text-white" id="blogButton">Blog</button>
                 </div>
                 <div class="navbar-center flex flex-col md:flex-row items-center">
                     <img class="pr-3" src="./pictures/logo.png" alt="Logo">
@@ -37,14 +37,40 @@
         </div>
     </header>
 
-    <main>
-        <p>History page content here</p>
+    <main class="pt-20">
+        <p class="text-center">History page content here</p>
     </main>
 
     <script>
+        // Navigate to blog page
+        const blogButton = document.getElementById('blogButton');
+        blogButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.location.href = 'blog.html';
+        });
+
+        // Navigate to donation page
+        const donateButton = document.getElementById('donateButton');
         donateButton.addEventListener('click', (event) => {
             event.preventDefault();
-            window.location.href = 'index.html'; // Opens file 1
+            window.location.href = 'index.html';
+        });
+
+        // Set the active button based on the current page
+        document.addEventListener('DOMContentLoaded', () => {
+            const historyButton = document.getElementById('historyButton');
+            historyButton.classList.add('bg-purple-600', 'text-white');
+            donateButton.classList.add('bg-white', 'text-black');
+        });
+
+        // Change navbar opacity on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-opacity-80');
+            } else {
+                navbar.classList.remove('bg-opacity-80');
+            }
         });
     </script>
 </body>

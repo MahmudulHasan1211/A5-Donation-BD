@@ -10,13 +10,11 @@
 </head>
 
 <body>
-<header>
-    <header></header>
+    <header>
         <div>
-            <div class="navbar bg-base-100 fixed top-0 z-10 w-full">
+            <div class="navbar bg-[#F7F6E2] fixed top-0 z-10 w-full transition-opacity duration-300">
                 <div class="navbar-start">
-                    <button id="backhome" style="background-color:#6B46C1; color: white;" class="btn"
-                        >Home</button>
+                    <button id="backhome" class="btn bg-purple-600 text-white">Home</button>
                 </div>
                 <div class="navbar-center flex flex-col md:flex-row items-center">
                     <img class="pr-3" src="./pictures/logo.png" alt="Logo">
@@ -30,65 +28,71 @@
                 </div>
             </div>
         </div>
-
     </header>
-</header>
 
-    <section class="my-29">
+    <section class="my-20">
         <div class="my-20">
-            <h1 class="text-4xl font-bold text-center">Frequently Asked <span class="text-red-500">Questions</span>
-            </h1>
+            <h1 class="text-4xl font-bold text-center">Frequently Asked <span class="text-red-500">Questions</span></h1>
         </div>
 
-        <div class="hero ">
+        <div class="hero">
             <div class="hero-content flex-col lg:flex-row">
                 <div>
-                    <div class="collapse collapse-arrow border border-blue-200 ">
+                    <div class="collapse collapse-arrow border border-blue-200">
                         <input type="radio" name="my-accordion-2" checked="checked" />
                         <div class="collapse-title text-xl font-medium">Document Object Model?</div>
                         <div class="collapse-content">
-                            <p>The Document Object Model (DOM) is a programming interface for web documents. <br> It represents the page so that programs can change the document structure, style, and content.</p>
+                            <p>The Document Object Model (DOM) is a programming interface for web documents. <br> It
+                                represents the page so that programs can change the document structure, style, and
+                                content.</p>
                         </div>
                     </div>
                     <div class="collapse collapse-arrow border border-blue-200 mt-2">
                         <input type="radio" name="my-accordion-2" />
                         <div class="collapse-title text-xl font-medium">What is React used for?</div>
                         <div class="collapse-content">
-                            <p>React can be used to build web, mobile, and desktop applications, making it a versatile  <br>framework for cross-platform development</p>
+                            <p>React can be used to build web, mobile, and desktop applications, making it a versatile
+                                <br>framework for cross-platform development.
+                            </p>
                         </div>
                     </div>
                     <div class="collapse collapse-arrow border border-blue-200 mt-2">
                         <input type="radio" name="my-accordion-2" />
-                        <div class="collapse-title text-xl font-medium">What is tailwind used for?</div>
+                        <div class="collapse-title text-xl font-medium">What is Tailwind used for?</div>
                         <div class="collapse-content">
-                            <p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this <br> utility-first framework.</p>
+                            <p>Tailwind CSS makes it quicker to write and maintain the code of your application. By
+                                using this <br> utility-first framework.</p>
                         </div>
                     </div>
                     <div class="collapse collapse-arrow border border-blue-200 mt-2">
                         <input type="radio" name="my-accordion-2" />
                         <div class="collapse-title text-xl font-medium">What is JavaScript and why is it used?</div>
                         <div class="collapse-content">
-                            <p>JavaScript is a scripting language used to develop web pages. Developed in Netscape, JS allows <br>developers to create a dynamic and interactive web page to interact with visitors and execute <br>complex actions.</p>
+                            <p>JavaScript is a scripting language used to develop web pages. Developed in Netscape, JS
+                                allows <br>developers to create a dynamic and interactive web page to interact with
+                                visitors and execute <br>complex actions.</p>
                         </div>
                     </div>
-                    <!-- <div class="collapse collapse-arrow border border-blue-200">
-                        <input type="radio" name="my-accordion-2" />
-                        <div class="collapse-title text-xl font-medium">How long can I leave a motorcycle in storage?
-                        </div>
-                        <div class="collapse-content">
-                            <p>Generally, a motorcycle can sit for about a month without someone riding it. However, any
-                                longer than that requires it to be properly prepared for storage. If you've never
-                                prepared your motorcycle for storage, we have a helpful guide on how to store a
-                                motorcycle on our website.</p>
-                        </div>
-                    </div> -->
                 </div>
             </div>
+        </div>
     </section>
+
     <script>
+        const backhome = document.getElementById('backhome');
         backhome.addEventListener('click', (event) => {
             event.preventDefault();
-            window.location.href = 'index.html'; // Opens file 1
+            window.location.href = 'index.html'; // Redirects to the home page
+        });
+
+        // Change navbar opacity on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-opacity-80'); // Add soft transparency
+            } else {
+                navbar.classList.remove('bg-opacity-80'); // Remove transparency
+            }
         });
     </script>
 </body>
