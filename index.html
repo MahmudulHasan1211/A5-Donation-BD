@@ -36,14 +36,21 @@
         <div>
             <section class="flex justify-center mt-8 space-x-3">
                 <!-- Donation and History buttons -->
-                <button class="btn bg-purple-600 text-white" id="donateButton">Donation</button>
-                <button class="btn text-purple-600" id="historyButton">History</button>
+                <button class="btn bg-purple-600 text-white" id="donateButton" onclick="hHidden()">Donation</button>
+                <button class="btn text-purple-600" id="historyButton" onclick="dHidden()">History</button>
             </section>
 
         </div>
+        <section class="" id="HHistory">
+            <div class="History mb-8">
+                <div class="hstr bg-[#F7F6E2] mb-3 text-center">
 
+                </div>
+                
+            </div>
+        </section>
         <!-- Cards Section -->
-        <section class="px-4 md:px-16">
+        <section class="px-4 md:px-16 " id="bodysec">
             <div>
                 <!-- First Card -->
                 <div class="card card-side bg-white shadow-xl mt-6 flex flex-col md:flex-row">
@@ -116,10 +123,10 @@
 
     <footer class="footer footer-center bg-base-300 text-base-content p-4">
         <aside>
-          <p>Copyright © 2024 - All right reserved by Donate For Bangladesh </p>
-          <p>Develop by Mahmudul Hasan Molla &trade;</p>
+            <p>Copyright © 2024 - All right reserved by Donate For Bangladesh </p>
+            <p>Develop by Mahmudul Hasan Molla &trade;</p>
         </aside>
-      </footer>
+    </footer>
 
     <!-- Modal -->
     <dialog id="my_modal_1" class="modal">
@@ -139,10 +146,7 @@
     </dialog>
 
     <script>
-        historyButton.addEventListener('click', (event) => {
-            event.preventDefault();
-            window.location.href = 'history.html';
-        });
+
         blogs.addEventListener('click', (event) => {
             event.preventDefault();
             window.location.href = 'blog.html';
@@ -150,6 +154,47 @@
 
         let currentBalance = parseInt(document.getElementById('mB').textContent);
         let history = [];
+
+
+        function dHidden() {
+            document.getElementById("bodysec").style.display = 'none';
+            document.getElementById('HHistory').style.display = 'block';
+            document.getElementById('historyButton').style.background='#9333EA';
+            document.getElementById('historyButton').style.color='white';
+            document.getElementById('donateButton').style.background='white';
+            document.getElementById('donateButton').style.color='black';
+
+
+            
+            let historyDiv = document.querySelector('.History');
+            for (let i = 0; i < history.length; i++) {
+                console.log(history[i].historyBalance);
+                
+                let hstr=document.querySelector('.hstr');
+
+                let paragraph1 = document.createElement('p');
+                paragraph1.textContent = history[i].historyBalance;
+
+                let paragraph2 = document.createElement('p');
+                paragraph2.textContent = history[i].date;
+
+
+               
+                hstr.appendChild(paragraph1);
+                hstr.appendChild(paragraph2);
+                historyDiv.appendChild(hstr);
+            }
+        }
+        function hHidden() {
+            document.getElementById("bodysec").style.display = 'block';
+            document.getElementById('HHistory').style.display = 'none';
+
+            document.getElementById('historyButton').style.background='white';
+            document.getElementById('historyButton').style.color='black';
+            document.getElementById('donateButton').style.background='#9333EA';
+            document.getElementById('donateButton').style.color='white';
+            
+        }
 
         // Function to handle donation logic
         function handleDonation(amountInputId, amountButtonId) {
@@ -174,14 +219,16 @@
 
                 // Log donation history
                 let historyBalance = inpValue;
+                historyBalance+=" BDT Donate for bangladesh"
                 let date = new Date();
                 let newData = [...history, { historyBalance, date }];
+                // let newData={historyBalance,date}
                 history = newData;
                 console.log(history);
 
                 // Show success modal
                 const successModal = document.getElementById('my_modal_1');
-                successModal.showModal();  
+                successModal.showModal();
             }
         }
 
@@ -199,7 +246,7 @@
         // Close modal event
         document.querySelector('.modal-action button').addEventListener('click', function () {
             const successModal = document.getElementById('my_modal_1');
-            successModal.close();  
+            successModal.close();
         });
 
         // Change navbar opacity on scroll
