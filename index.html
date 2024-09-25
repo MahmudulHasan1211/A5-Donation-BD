@@ -37,7 +37,7 @@
             <section class="flex justify-center mt-8 space-x-3">
                 <!-- Donation and History buttons -->
                 <button class="btn bg-purple-600 text-white" id="donateButton" onclick="hHidden()">Donation</button>
-                <button  class="btn text-purple-600" id="historyButton" onclick="dHidden()">History</button>
+                <button class="btn text-purple-600" id="historyButton" onclick="dHidden()">History</button>
             </section>
 
         </div>
@@ -46,7 +46,7 @@
                 <div class="hstr bg-[#F7F6E2] mb-3 text-center">
 
                 </div>
-                
+
             </div>
         </section>
         <!-- Cards Section -->
@@ -159,18 +159,20 @@
         function dHidden() {
             document.getElementById("bodysec").style.display = 'none';
             document.getElementById('HHistory').style.display = 'block';
-            document.getElementById('historyButton').style.background='#9333EA';
-            document.getElementById('historyButton').style.color='white';
-            document.getElementById('donateButton').style.background='white';
-            document.getElementById('donateButton').style.color='black';
+            document.getElementById('historyButton').style.background = '#9333EA';
+            document.getElementById('historyButton').style.color = 'white';
+            document.getElementById('donateButton').style.background = 'white';
+            document.getElementById('donateButton').style.color = 'black';
 
-
-            
             let historyDiv = document.querySelector('.History');
+            let hstr = document.querySelector('.hstr');
+
+            // Clear previous history entries
+            hstr.innerHTML = ''; // This clears the previous history entries
+
+            // Append new history entries
             for (let i = 0; i < history.length; i++) {
                 console.log(history[i].historyBalance);
-                
-                let hstr=document.querySelector('.hstr');
 
                 let paragraph1 = document.createElement('p');
                 paragraph1.textContent = history[i].historyBalance;
@@ -178,22 +180,20 @@
                 let paragraph2 = document.createElement('p');
                 paragraph2.textContent = history[i].date;
 
-
-               
                 hstr.appendChild(paragraph1);
                 hstr.appendChild(paragraph2);
                 historyDiv.appendChild(hstr);
             }
         }
+
         function hHidden() {
             document.getElementById("bodysec").style.display = 'block';
             document.getElementById('HHistory').style.display = 'none';
 
-            document.getElementById('historyButton').style.background='white';
-            document.getElementById('historyButton').style.color='black';
-            document.getElementById('donateButton').style.background='#9333EA';
-            document.getElementById('donateButton').style.color='white';
-            
+            document.getElementById('historyButton').style.background = 'white';
+            document.getElementById('historyButton').style.color = 'black';
+            document.getElementById('donateButton').style.background = '#9333EA';
+            document.getElementById('donateButton').style.color = 'white';
         }
 
         // Function to handle donation logic
@@ -218,11 +218,9 @@
                 document.getElementById(amountInputId).value = "";
 
                 // Log donation history
-                let historyBalance = inpValue;
-                historyBalance+=" BDT Donate for bangladesh"
+                let historyBalance = inpValue + " BDT Donate for Bangladesh";
                 let date = new Date();
                 let newData = [...history, { historyBalance, date }];
-                // let newData={historyBalance,date}
                 history = newData;
                 console.log(history);
 
@@ -258,8 +256,8 @@
                 navbar.classList.remove('opacity-90');
             }
         });
-    </script>
 
+    </script>
 </body>
 
 </html>
