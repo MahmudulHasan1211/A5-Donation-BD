@@ -77,21 +77,26 @@
             </div>
         </div>
     </section>
-
+    <footer class="footer footer-center bg-base-300 text-base-content p-4">
+        <aside>
+          <p>Copyright © 2024 - All right reserved by Donate For Bangladesh </p>
+          <p>Develop by Mahmudul Hasan Molla &trade;</p>
+        </aside>
+      </footer>
     <script>
         const backhome = document.getElementById('backhome');
         backhome.addEventListener('click', (event) => {
             event.preventDefault();
-            window.location.href = 'index.html'; // Redirects to the home page
+            window.location.href = 'index.html'; 
         });
 
         // Change navbar opacity on scroll
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
-                navbar.classList.add('bg-opacity-80'); // Add soft transparency
+                navbar.classList.add('bg-opacity-80'); 
             } else {
-                navbar.classList.remove('bg-opacity-80'); // Remove transparency
+                navbar.classList.remove('bg-opacity-80'); 
             }
         });
     </script>
