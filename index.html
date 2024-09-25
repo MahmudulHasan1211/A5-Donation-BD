@@ -148,7 +148,7 @@
         function handleDonation(amountInputId, amountButtonId) {
             const inpValue = parseInt(document.getElementById(amountInputId).value);
 
-            if (0 > inpValue || isNaN(inpValue)) {
+            if (0 >= inpValue || isNaN(inpValue)) {
                 alert("Invalid input");
             } else if (inpValue > currentBalance) {
                 alert("Insufficient balance");
